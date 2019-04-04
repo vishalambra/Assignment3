@@ -1,0 +1,39 @@
+<div class="container">
+    <hr/>
+      <form [formGroup]="updateForm" class="margin-btm">
+        <div class="co">
+          <label>Full Name:</label><br>
+          <input type="text"  formControlName="fname"/><br>
+          <span class="err" *ngIf="updateForm.get('fname').invalid && updateForm.get('fname').touched">errr</span>
+        </div>
+
+        <div class="co">
+          <label>Email:</label><br>
+          <input type="email" formControlName="email" /><br>
+          <span class="err" *ngIf="updateForm.get('email').invalid && updateForm.get('email').touched">errr</span>
+        </div>
+
+        <div class="co">
+            <label>Phone:</label><br>
+            <input type="tel"  formControlName="phone" /><br>
+            <span class="err" *ngIf="updateForm.get('phone').invalid && updateForm.get('phone').touched">errr</span>
+          </div>
+
+        <div class="co">
+            <label>Address:</label><br>
+            <input type="text" formControlName="address"  /><br>
+            <span class="err" *ngIf="updateForm.get('address').invalid && updateForm.get('address').touched">errr</span>
+          </div>
+
+          <div class="co">
+              <label>Medical:</label><br>
+              <input type="text"  formControlName="medical"/><br>
+            </div>
+
+        <div class="mid">
+          <button class="registerbtn" (click)="updateDetails()" >Update</button>
+        </div>
+      </form>
+      <div style="clear:both"></div> 
+  </div>
+  <div style="clear:both"></div>

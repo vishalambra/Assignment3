@@ -1,0 +1,84 @@
+<div class="container"> 
+  <h2>Register</h2>
+  <hr/>
+
+  <form [formGroup]="registrationForm" class="margin-btm">
+    
+    <div class="co">
+      <label for="fname" >First Name</label><br>
+      <input [class.is-invalid]="fname.invalid &&
+      fname.touched" type="text" formControlName="fname" /><br>
+      <small class="err" *ngIf="fname.touched && fname.invalid">username Required</small>
+    </div>
+
+    <div class="co">
+      <label for="lname">Last Name</label><br>
+      <input type="text" [class.is-invalid]="registrationForm.get('lname').invalid &&
+      registrationForm.get('lname').touched" formControlName='lname' /><br>
+      <small class="err" *ngIf="registrationForm.get('lname').invalid &&
+      registrationForm.get('lname').touched">username Required</small>
+    </div>
+
+    <div class="co">
+      <label for="email">Email</label><br>
+      <input type="email" [class.is-invalid]="registrationForm.get('email').invalid &&
+      registrationForm.get('email').touched" formControlName='email' /><br>
+      <small class="err" *ngIf="registrationForm.get('email').invalid &&
+      registrationForm.get('email').touched">username Required</small>
+    </div>
+
+    <div class="co">
+      <label for="phone" >Phone</label><br>
+      <input type="tel" formControlName='phone' [class.is-invalid]="registrationForm.get('phone').invalid &&
+      registrationForm.get('phone').touched" /><br>
+      <div *ngIf="registrationForm.get('phone').invalid &&
+      registrationForm.get('phone').touched">
+        <small class="err" *ngIf="registrationForm.get('phone').errors?.required">phone Required</small>
+        <small class="err" *ngIf="registrationForm.get('phone').errors?.minlength">phone shld be 10 number</small> 
+      </div >
+    </div>
+
+    <div class="co">
+      <label for="address" >Address</label><br>
+      <input type="text" [class.is-invalid]="registrationForm.get('address').invalid &&
+      registrationForm.get('address').touched" formControlName='address'/><br>
+      <small class="err" *ngIf="registrationForm.get('address').invalid &&
+      registrationForm.get('address').touched" >username Required</small> 
+    </div>
+
+    <div class="co">
+      <label>BRIEF MEDICAL HISTORY(OPTIONAL)</label><br>
+      <input type="text" formControlName='medical' />
+    </div>
+
+    <div class="co">
+      <label>Password</label><br>
+      <input type="password" [class.is-invalid]="registrationForm.get('password').invalid &&
+      registrationForm.get('password').touched" formControlName='password' /><br>
+      <small class="err" *ngIf="registrationForm.get('password').invalid &&
+      registrationForm.get('password').touched">username Required</small> 
+    </div>
+
+    <div class="co">
+      <label>Confirm Password</label><br>
+      <input type="password" [class.is-invalid]="registrationForm.get('cpass').invalid &&
+      registrationForm.get('cpass').touched" formControlName='cpass' /><br>
+      <div *ngIf="registrationForm.get('cpass').invalid &&
+      registrationForm.get('cpass').touched">
+      <small class="err" *ngIf="registrationForm.get('cpass').errors?.required" >username Required</small> 
+      <small class="err" *ngIf="registrationForm.get('cpass').hasError('passwordValidator')" > password not match</small>
+      </div >
+    </div>
+
+    <div class="mid">
+      <button class="registerbtn" [disabled]="!registrationForm.valid" (click)="submitData()">Register</button>
+    </div> 
+  </form>
+
+  <div style="clear:both"></div>
+  <div class="btm-nav">
+    <span>If Already Registered?</span>
+    <a routerLink="/login">Login</a>
+  </div>
+</div>
+{{ registrationForm.value | json}}

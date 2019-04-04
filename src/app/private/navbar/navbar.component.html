@@ -1,0 +1,18 @@
+
+<div class="navbar">
+  <!-- <span><img src="/home/vishal/Downloads/logo.png"></span> -->
+  <!-- <span class="logo">NURSES LOGIN</span> -->
+  <div class="dropdown">
+    <button class="dropbtn" (click)="myFunction()">{{owner | uppercase}} 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content" id="myDropdown">
+      <a routerLink="profile" routerLinkActive="active">Profile</a>
+      <a routerLink="bookings" routerLinkActive="active">Bookings ({{sum}}) </a>
+      <a routerLink="faq" routerLinkActive="active">FAQ's</a>
+      <a (click)="logout()" >Log Out</a>
+    </div>
+  </div> 
+</div>
+<h2>{{head | uppercase}}</h2>
+<router-outlet></router-outlet>

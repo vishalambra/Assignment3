@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>Login</h2>
+  <hr>
+
+  <form [formGroup]="loginForm" class="margin-btm">
+    <div class="co">
+      <label>Email:</label><br>
+      <input type="email" [class.is-invalid]="userEmail.invalid &&
+      userEmail.touched" formControlName="email"/><br>
+      <span class="err" *ngIf="userEmail.touched && userEmail.invalid">Field Required</span>
+    </div>
+
+    <div class="co">
+      <label>Password:</label><br>
+      <input type="password" formControlName="password" /><br>
+      <span class="err" *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid">Field Required</span>
+    </div>
+
+    <div class="mid">
+      <button class="registerbtn" [disabled]="!loginForm.valid" (click)="login()">Login</button>
+    </div>
+  </form>
+  <div class="btm-nav">
+    <span>Create Account?</span>
+    <a routerLink="/register">Register</a>
+  </div>
+
+</div>
